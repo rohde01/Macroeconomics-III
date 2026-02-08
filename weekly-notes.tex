@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry} % Indstiller margen til 2.5 cm
+\usepackage{setspace} % Til linjeafstand
+\onehalfspacing % Indstiller linjeafstand til 1.5
+\usepackage{graphicx} % Til billeder
+\usepackage{amsmath, amssymb} % Til matematiske udtryk
+\usepackage{booktabs} % Til tabeller
+\usepackage{caption} % Bedre kontrol over billedtekst
+\usepackage{float} % Tillader placering af figurer på en ny side
+\usepackage{pgfplots}
+\usetikzlibrary{intersections, patterns, decorations.markings, calc}
+
+\title{Macroeconomics III - Weekly notes}
+\author{Carl-Emil Rohde - kvb125}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Week 1}
+
+\subsection{Assumptions}
+\begin{itemize}
+    \item Time is discrete (i.e., not continuous) - only two moments matter, today and tomorrow. no time in between. only these two snapshots
+    \item There is a representative agent. - One person represents entire economy. everyone is identical, thus studying one person means studying the entire economy. 
+    \item Two period model $t \in\{0,1\}$ Captures the key tradeoff (consume now vs. later) without adding complexity. there is only today and tomorrow
+    \item Agents discount the future at factor $\beta$ - How much you value future consumption relative to today. example: $\beta = 0.96$ means 1 unit of consumption tomorrow = 0.96 units today
+    \item The agent can save in bonds $\left(a_1\right)$ which pay interest rate $R(=1+r)$
+    \item Each period, agents receive an endowment $y_t$, which is known. Key: You can't change your income, only decide how to spend/save it
+    \item The utility function is given by $u\left(c_t\right)$ - measures happines :-) consuming $c_1$.
+    \\
+    \\
+No general equilibrium yet
+    \item Assume $R$ is given exogenously ("Partial equilibrium"). You can't affect it—you're a price-taker.
+\end{itemize}
+\newpage
+\subsection{Solving the Two-Period Problem }
+\textbf{idea:} 
+\begin{itemize}
+    \item Consume more today → less savings → less to consume tomorrow
+    \item Consume less today → more savings → more to consume tomorrow
+\end{itemize}
+We want to maximize total utility across both periods:
+$$
+\begin{array}{rl}
+\max _{c_0, c_1} & U=u\left(c_0\right)+\beta u\left(c_1\right) \\
+\text { subject to } & c_0+a_1=y_0 \\
+& c_1=y_1+(1+r) a_1
+\end{array}
+$$
+The two constraints are period 0 and 1 budget constraints. \textbf{problem}: We have 3 choice variables ( $\mathrm{c}_0, \mathrm{c}_1, \mathrm{a}_1$ ) and 2 constraints. \textbf{Solution:} combine the two constraints (see written notes for calculations):
+$$
+c_0=y_0-\frac{c_1-y_1}{1+r}
+$$
+This equaiton now basically says: "how much can i consume today if i want to consume $c_1$ tomorrow." the fraction on right side tells how much savings need to carry into period 1 to meet period 1 consumption demands. we can substitute the combined constraint into the utility function to obtain a simpler max problem: 
+$$
+\max _{c_1} U=u\left(y_0-\frac{c_1-y_1}{1+r}\right)+\beta u\left(c_1\right)
+$$
+To find the maximum we take the derivative of $U$ with respect to $c_1$ and set it equal to zero. after rearranging this gives us (see written notes for calcs):
+$$
+\beta u^{\prime}\left(c_1\right)=\frac{1}{1+r} \cdot u^{\prime}\left(c_0\right)
+$$
+The first order conditionis is the equation you get when you take the derivative of your objective function and set it equal to zero to find the maximum. When you're maximizing something (like utility), the FOC tells you where the peak is ie. where you can't improve by moving in either direction. The above equation can be re-arranged into the euler equation: 
+$$
+u^{\prime}\left(c_0\right)=\beta(1+r) u^{\prime}\left(c_1\right)
+$$
+\begin{itemize}
+    \item \textbf{left side:} marginal utility of consuming one more unit today
+    \item \textbf{right side:} marginal utility of consuming one more unit tomorrow adjusted for impatience $\beta$ and interest $1+r$
+\end{itemize}
+The euler equation basically say: "at the optimum, the marginal benefit of consuming today equals the marginal benefit of saving and consuming tomorrow"
+If this weren't true, you could make yourself better off by shifting consumption between periods $\rightarrow$ thus you have not found the optimal bundle. additionally we can rearrange like this:
+$$
+\frac{u^{\prime}\left(c_0\right)}{\beta u^{\prime}\left(c_1\right)}=1+r
+$$
+\textbf{The left side} is the marginal rate of substitution between consumption today and tomorrow. \textbf{The right side} is the market exchange rate between today and tomorrow (the interest rate). At the optimum, these must be equal.
+
+To fully solve the problem we need:
+\begin{itemize}
+    \item The Euler equation: $u^{\prime}\left(c_0\right)=\beta(1+r) u^{\prime}\left(c_1\right)$ (This tells you the optimal ratio between $\mathrm{c}_0$ and $\mathrm{c}_1$)
+    \item The budget constraint: $c_1=y_1+(1+r)\left(y_0-c_0\right)$ (tells you feasible combinations)
+\end{itemize}
+
+\end{document}
