@@ -82,4 +82,36 @@ To fully solve the problem we need:
     \item The budget constraint: $c_1=y_1+(1+r)\left(y_0-c_0\right)$ (tells you feasible combinations)
 \end{itemize}
 
+\subsection{Utility function}
+crucial assumptions on what makes a good utility function. we need properties that make economic sense: 
+\begin{itemize}
+    \item Positive but Decreasing Marginal Utility. More consumption is always better. $u^{\prime}(c)>0$
+    \item Decreasing marginal utility: $u^{\prime \prime}(c)<0$. Each additional unit brings smaller increases in happiness. This is why indifference curves are convex (curved inwards).
+    \item The limit condition: $\lim _{c \rightarrow \infty} u^{\prime}(c)=0$ As you consume more and more, the marginal benefit approaches zero but will never be negative
+    \item Consumption is Essential $\lim _{c \rightarrow 0} u^{\prime}(c)=\infty$. As consumption approaches zero (starvation), marginal utility explodes to infinity
+\end{itemize}{}
+
+\subsubsection{Constant Relative Risk Aversion (CRRA)}
+The formula:
+$$
+u(c)=\frac{c^{1-\sigma}-1}{1-\sigma} ; \quad \sigma>0 ; \sigma \neq 1
+$$
+The workhorse utility function in economics adhering to all of the above properties. Taking the derivative:
+$$
+u^{\prime}(c)=\frac{d}{d c}\left[\frac{c^{1-\sigma}-1}{1-\sigma}\right]=\frac{(1-\sigma) c^{-\sigma}}{1-\sigma}=c^{-\sigma}
+$$
+we see the marginal utility is just:
+$$
+u^{\prime}(c)=c^{-\sigma}
+$$
+
+\textbf{The Parameter $\sigma$ (Sigma)}
+
+\begin{itemize}
+    \item Coefficient of Relative Risk Aversion: How much you dislike uncertainty/variability in consumption. High risk aversion $\rightarrow$ hate fluctuations, prefer smooth consumption.
+    \item Intertemporal Elasticity of Substitution $=1 / \sigma$ This measures how willing you are to shift consumption between periods when the interest rate changes.
+    \item As $\sigma \rightarrow \infty$, Leontief Preferences
+\end{itemize}
+
+
 \end{document}
