@@ -113,5 +113,68 @@ $$
     \item As $\sigma \rightarrow \infty$, Leontief Preferences
 \end{itemize}
 
+\section{Week 2}
+
+Two periods are not enough. We introduce an arbitrary, but finite horizon:
+\paragraph{Preferences}
+$$
+U=u\left(c_0\right)+\beta u\left(c_1\right)+\beta^2 u\left(c_2\right)+\cdots=\sum_{t=0}^T \beta^t u\left(c_t\right)
+$$
+\paragraph{Dynamic budget constraints:}
+$$
+\begin{aligned}
+&\begin{aligned}
+& c_0+a_1=y_0+\left(1+r_0\right) a_0 \\
+& c_1+a_2=y_1+\left(1+r_1\right) a_1
+\end{aligned}\\
+&\begin{aligned}
+c_t+a_{t+1} & =y_t+\left(1+r_t\right) a_t \\
+a_{T+1} & \geq 0
+\end{aligned}
+\end{aligned}
+$$
+\paragraph{problem components}
+the problem then becomes:
+$$
+\max _{c_t, a_{t+1} \forall t} U=\sum_{t=0}^T \beta^t u\left(c_t\right)
+$$
+subject to: $$
+c_t+a_{t+1}=y_t+\left(1+r_t\right) a_t ; a_{T+1} \geq 0 ; a_0=0
+$$
+\textbf{bottom line: }we're solving a household's consumption problem over multiple periods (from time 0 to time T). The household wants to maximize lifetime happiness by choosing how much to consume ( $c_t$ ) and save ($a_{t+1}$) each period. What limits choices are the budget constraint:
+$$
+c_t+a_{t+1}=y_t+\left(1+r_t\right) a_t
+$$
+this says: What you spend + what you save = what you earn + what you saved before (with interest). this problem can be setup and solved through \textbf{Lagrangian:}
+$$
+\mathcal{L}=\sum_{t=0}^T \beta^t u\left(c_t\right)+\sum_{t=0}^T \lambda_t\left[y_t+\left(1+r_t\right) a_t-c_t-a_{t+1}\right]+\mu a_{T+1}
+$$
+Instead of solving T separate optimization problems (one for each period), the Lagrangian lets us solve everything simultaneously by:
+\begin{itemize}
+    \item Taking derivatives with respect to all choice variables ( $c_t$ and $a_{t+1}$ for each $t$ )
+    \item Setting these derivatives equal to zero
+    \item This gives us the Euler equation and other optimality conditions
+\end{itemize}
+Euler equation is identical to 2-period model:
+$$
+u^{\prime}\left(c_t\right)=\beta\left(1+r_{t+1}\right) u^{\prime}\left(c_{t+1}\right)
+$$
+\paragraph{Infinite horizon}
+The household now lives forever (or thinks infinitely far ahead):
+$$
+\sum_{t=0}^T \beta^t u\left(c_t\right) \rightarrow \sum_{t=0}^{\infty} \beta^t u\left(c_t\right)
+$$
+This represents intergenerational altruism (parents care about children who care about their children, etc.)
+\paragraph{no ponzi condition:}
+Finite horizon had: $a_{T+1} \geq 0$ "cannot die with debt". Infinite horizon has:
+$$
+\lim _{T \rightarrow \infty}\left(\prod_{t=0}^T \frac{1}{1+r_t}\right) a_{T+1} \geq 0
+$$
+This is the discount factor that converts future assets to present value. The present value of your assets far in the future cannot be negative
+
+You can borrow, but you must eventually pay it back (at least in present value terms). You can't roll over debt forever without eventually paying it back. The No-Ponzi condition is the infinite-horizon equivalent of "you can't die with debt." It prevents unrealistic Ponzi schemes where you borrow forever without repaying, ensuring the optimization problem has a sensible solution.
+
+
+
 
 \end{document}
