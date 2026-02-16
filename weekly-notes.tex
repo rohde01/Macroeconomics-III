@@ -173,6 +173,20 @@ $$
 This is the discount factor that converts future assets to present value. The present value of your assets far in the future cannot be negative
 
 You can borrow, but you must eventually pay it back (at least in present value terms). You can't roll over debt forever without eventually paying it back. The No-Ponzi condition is the infinite-horizon equivalent of "you can't die with debt." It prevents unrealistic Ponzi schemes where you borrow forever without repaying, ensuring the optimization problem has a sensible solution.
+\subsection{Ramsey model}
+The Ramsey model is essentially the Solow growth model with smart consumers. Instead of assuming people save a fixed fraction of their income, the Ramsey model lets people choose how much to save based on what's best for them.
+
+\paragraph{key players}
+\begin{itemize}
+    \item Households: Choose consumption ( $c_t$ ) and saving ( $a_t$ )
+    \item Firms: Use capital $\left(K_t\right)$ and labor $\left(L_t\right)$ to produce output using $Y_t=A K_t^\alpha L_t^{1-\alpha}$ Firms borrow capital from households and pays $r_t$ per unit of capital. 
+\end{itemize}
+\paragraph{key equations} Model boils down to these two equations:
+\begin{itemize}
+    \item Resource constraint: $k_{t+1}=(1-\delta) k_t+f\left(k_t\right)-c_t$ this is how capital evolves: Capital tomorrow = leftover capital today (after depreciation) + new production - what we consumed. This describes total capital in the economy.
+    \item euler equation: $u^{\prime}\left(c_t\right)=\beta\left(1+r_{t+1}-\delta\right) u^{\prime}\left(c_{t+1}\right)$ This balances "Should I consume today or tomorrow?". $r_{t+1}=f^{\prime}\left(k_{t+1}\right)=$ the return on capital (what you earn by saving)
+\end{itemize}
+
 
 
 
