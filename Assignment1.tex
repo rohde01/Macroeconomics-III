@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry} % Indstiller margen til 2.5 cm
+\usepackage{setspace} % Til linjeafstand
+\onehalfspacing % Indstiller linjeafstand til 1.5
+\usepackage{graphicx} % Til billeder
+\usepackage{amsmath, amssymb} % Til matematiske udtryk
+\usepackage{booktabs} % Til tabeller
+\usepackage{caption} % Bedre kontrol over billedtekst
+\usepackage{float} % Tillader placering af figurer på en ny side
+\usepackage{pgfplots}
+\usetikzlibrary{intersections, patterns, decorations.markings, calc}
+
+\title{Macroeconomics III - Assignment 1}
+\author{fps618, kvb125}
+\date{feb 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Exercise 1}
+\subsection{a)}
+We want to find the optimal consumption path meaning how much to consume each period. To do this, we set up a Lagrangian and take derivatives. Our constraint each period is: $c_t+a_{t+1}=y_t+(1+r) a_t$, which we rearrange: $y_t+(1+r) a_t-c_t-a_{t+1}=0$ Since this constraint holds for every period, we need a separate multiplier $\lambda_t$ for each one: 
+$$
+\mathcal{L}=\sum_{t=0}^{\infty} \beta^t \frac{c_t^{1-\sigma}}{1-\sigma}_{\text {utility }}+\sum_{t=0}^{\infty} \lambda_t\left[y_t+(1+r) a_t-c_t-a_{t+1}\right]
+$$
+We have two choice variables each period: $\mathbf{c}_{\mathbf{t}}$ (consumption) and $\mathbf{a}_{\mathbf{t}_{+1}}$ (savings) so we find FOCs with respect for both. 
+\subsubsection{FOC with respect to $c_t$}
+$$
+\frac{\partial \mathcal{L}}{\partial c_t}=\beta^t \cdot \frac{(1-\sigma) c_t^{-\sigma}}{1-\sigma}+\lambda_t \cdot(-1)=\beta^t c_t^{-\sigma}-\lambda_t
+$$
+Setting the sum of both terms equal to zero:
+$$
+\frac{\partial \mathcal{L}}{\partial c_t}=\beta^t c_t^{-\sigma}-\lambda_t=0
+$$
+$$
+\boxed{\lambda_t=\beta^t c_t^{-\sigma}}
+$$
+
+\subsubsection{FOC with respect to $a_{t_{+1}}$}
+Because $\mathbf{a}_{\mathbf{t}_{\mathbf{+ 1}}}$ appears in two different period constraints, we need to differentiate term by term:
+\\
+\textbf{Period $t$}:
+$$
+\frac{\partial}{\partial a_{t+1}} \lambda_t\left[y_t+(1+r) a_t-c_t-a_{t+1}\right]=\lambda_t \cdot(-1)=-\lambda_t
+$$
+\textbf{Period $t+1$}
+$$
+\frac{\partial}{\partial a_{t+1}} \lambda_{t+1}\left[y_{t+1}+(1+r) a_{t+1}-c_{t+1}-a_{t+2}\right]=\lambda_{t+1} \cdot(1+r)
+$$
+Setting the sum of both terms equal to zero gives us the second FOC:
+$$
+\frac{\partial \mathcal{L}}{\partial a_{t+1}}=-\lambda_t+(1+r) \lambda_{t+1}=0
+$$
+$$\boxed{\lambda_t=(1+r) \lambda_{t+1}}$$
+\subsubsection{Obtaining the euler-equation}
+To better understand the trade off between consumption and saving, we can substitute the $c_t$ FOC into the $a_t+t$ FOC. 
+\\
+\\
+From the $c_t$ FOC we got:
+$$
+\lambda_t=\beta^t c_t^{-\sigma}
+$$
+This holds for any period as it's a general statement. So if we shift it forward one period we get:
+$$
+\lambda_{t+1}=\beta^{t+1} c_{t+1}^{-\sigma}
+$$
+These two terms for $\lambda_t$ and $\lambda_t+1$ can now be inserted directly into the second FOC:
+$$
+\underbrace{\beta^t c_t^{-\sigma}}_{\lambda_t}=(1+r) \cdot \underbrace{\beta^{t+1} c_{t+1}^{-\sigma}}_{\lambda_{t+1}}
+$$
+Finally we divide with $\beta^t$ on both sides to arrive at the euler equation:
+$$
+\boxed{c_t^{-\sigma}=\beta(1+r) \cdot c_{t+1}^{-\sigma}}
+$$
+The Euler equation tells us exactly what influences the tradeoff between consuming today vs. tomorrow adjusted for impatience $\beta$ and interest $1+r$. $\sigma$ is an elasticity parameter. A higher $\sigma$ means you're less willing to substitute across time even if $r$ is high, you won't shift much consumption to the future. 
+\\
+\\
+At the optimum, you're indifferent between consuming one unit today or saving it and consuming (1+r) units tomorrow. If this weren't true, you could make yourself better off by shifting consumption between periods $\rightarrow$ thus you have not found the optimal bundle.
+
+\subsection{b)}
+
+\end{document}

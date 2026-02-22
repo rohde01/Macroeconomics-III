@@ -183,12 +183,34 @@ The Ramsey model is essentially the Solow growth model with smart consumers. Ins
 \end{itemize}
 \paragraph{key equations} Model boils down to these two equations:
 \begin{itemize}
-    \item Resource constraint: $k_{t+1}=(1-\delta) k_t+f\left(k_t\right)-c_t$ this is how capital evolves: Capital tomorrow = leftover capital today (after depreciation) + new production - what we consumed. This describes total capital in the economy.
+    \item Resource constraint (law of motion for capital): $k_{t+1}=(1-\delta) k_t+f\left(k_t\right)-c_t$ this is how capital evolves: Capital tomorrow = leftover capital today (after depreciation) + new production - what we consumed. This describes total capital in the economy.
     \item euler equation: $u^{\prime}\left(c_t\right)=\beta\left(1+r_{t+1}-\delta\right) u^{\prime}\left(c_{t+1}\right)$ This balances "Should I consume today or tomorrow?". $r_{t+1}=f^{\prime}\left(k_{t+1}\right)=$ the return on capital (what you earn by saving)
 \end{itemize}
-
-
-
-
+\subsection{steady state}
+The steady state is simply the long-run resting point of the economy - where nothing is changing anymore. Both consumption $c$ and capital $k$ have stopped moving. 
+\paragraph{ss for capital accum.}In steady state, $k_{t+1}=k_t=k$ (capital stops changing). So simply substitute that into resource constraint:
+$$
+k=(1-\delta) k+f(k)-c
+$$
+solve for $c$:
+$$
+c=f(k)-\delta k
+$$
+This says: steady-state consumption = total output minus what you need to replace worn-out capital.
+\paragraph{ss for euler equation}
+In steady state, $c_{t+1}=c_t=c$ (consumption stops changing too). Substitute:
+$$
+u^{\prime}(c)=\beta(1+r-\delta) u^{\prime}(c)
+$$
+rearrange:
+$$
+r=\frac{1}{\beta}+\delta-1
+$$
+From the firm's optimization (slide 18), the firm hires capital until its marginal product equals the rental rate: $r=f^{\prime}(k)$
+Substituting this into for $r$:
+$$
+f^{\prime}(k)=\frac{1}{\beta}+\delta-1
+$$
+this says: The marginal product of capital must exactly compensate households for waiting (impatience, captured by $1 / \beta$ ) and for depreciation ( $\delta$ ).
 
 \end{document}
