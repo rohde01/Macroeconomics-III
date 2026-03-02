@@ -73,11 +73,400 @@ Finally we divide with $\beta^t$ on both sides to arrive at the euler equation:
 $$
 \boxed{c_t^{-\sigma}=\beta(1+r) \cdot c_{t+1}^{-\sigma}}
 $$
+
+$$\frac{c_{t+1}}{c_t}=[\beta(1+r)]^{1 / \sigma}$$
+
 The Euler equation tells us exactly what influences the tradeoff between consuming today vs. tomorrow adjusted for impatience $\beta$ and interest $1+r$. $\sigma$ is an elasticity parameter. A higher $\sigma$ means you're less willing to substitute across time even if $r$ is high, you won't shift much consumption to the future. 
 \\
 \\
 At the optimum, you're indifferent between consuming one unit today or saving it and consuming (1+r) units tomorrow. If this weren't true, you could make yourself better off by shifting consumption between periods $\rightarrow$ thus you have not found the optimal bundle.
 
 \subsection{b)}
+
+\paragraph{No-Ponzi Game Condition}
+
+The no-Ponzi game (NPG) condition is
+\[
+\lim_{T \to \infty} \frac{a_{T+1}}{(1+r)^{T+1}} \ge 0.
+\]
+It rules out the possibility that the consumer can finance consumption by rolling over debt forever. Hence, it prevents explosive borrowing schemes. The NPG condition is a feasibility constraint as it is imposed on the agent from outside, not something they choose. It restricts the set of feasible plans the agent can choose from.
+
+\paragraph{Present-Value Budget Constraint}
+
+Starting from the period budget constraint
+\[
+a_{t+1} = (1+r)a_t + y_t - c_t,
+\]
+forward substitution yields
+\[
+a_{T+1}
+=
+(1+r)^{T+1} a_0
++
+\sum_{t=0}^{T} (1+r)^{T-t} (y_t - c_t).
+\]
+Dividing by $(1+r)^{T+1}$ gives
+\[
+\frac{a_{T+1}}{(1+r)^{T+1}}
+=
+a_0
++
+\sum_{t=0}^{T} \frac{y_t - c_t}{(1+r)^{t+1}}.
+\]
+
+Taking the limit as $T \to \infty$ and using the NPG condition together with the transversality condition (which implies that the discounted value of assets converges to zero), we obtain
+\[
+0
+=
+a_0
++
+\sum_{t=0}^{\infty} \frac{y_t - c_t}{(1+r)^{t+1}}.
+\]
+
+Rearranging yields the intertemporal budget constraint:
+
+$$\boxed{\sum_{t=0}^{\infty} \frac{c_t}{(1+r)^{t+1}}=a_0+\sum_{t=0}^{\infty} \frac{y_t}{(1+r)^{t+1}}}
+$$
+
+Thus, the discounted value of lifetime consumption equals the discounted value of lifetime resources (initial assets plus endowments).
+
+\subsection{c)}
+
+\paragraph{Solving for $c_0$}
+
+From the Euler equation we found
+\[
+\frac{c_{t+1}}{c_t} = [\beta(1+r)]^{\frac{1}{\sigma}}.
+\]
+Iterating this forward gives the entire consumption path as a function of $c_0$:
+\[
+c_t = \left([\beta(1+r)]^{\frac{1}{\sigma}}\right)^t c_0
+= [\beta^t (1+r)^t]^{\frac{1}{\sigma}} c_0.
+\]
+
+Now insert this expression into the intertemporal budget constraint:
+\[
+\sum_{t=0}^{\infty} \frac{c_t}{(1+r)^{t+1}}
+=
+a_0
++
+\sum_{t=0}^{\infty} \frac{y_t}{(1+r)^{t+1}}.
+\]
+
+Substituting for $c_t$ gives
+\[
+\sum_{t=0}^{\infty} 
+\frac{[\beta^t (1+r)^t]^{\frac{1}{\sigma}} c_0}
+{(1+r)^{t+1}}
+=
+a_0
++
+\sum_{t=0}^{\infty} \frac{y_t}{(1+r)^{t+1}}.
+\]
+
+Multiply both sides by $(1+r)$:
+\[
+\sum_{t=0}^{\infty} 
+\frac{1}{(1+r)^t}
+[\beta^t (1+r)^t]^{\frac{1}{\sigma}} c_0
+=
+(1+r)a_0
++
+\sum_{t=0}^{\infty} \frac{y_t}{(1+r)^t}.
+\]
+
+Rearranging,
+\[
+\boxed{
+\sum_{t=0}^{\infty} \frac{1}{(1+r)^t} y_t
+=
+\sum_{t=0}^{\infty} 
+\frac{1}{(1+r)^t}
+[\beta^t (1+r)^t]^{\frac{1}{\sigma}} c_0
+- (1+r)a_0
+}
+\]
+
+In the special case $a_0 = 0$, this simplifies to
+
+\[
+\boxed{
+\lim_{T \rightarrow \infty} 
+\sum_{i=0}^T \frac{1}{(1+r)^i} y_i
+=
+\lim_{T \rightarrow \infty} 
+\sum_{i=0}^T 
+\frac{1}{(1+r)^i}
+\left[\beta^i (1+r)^i \right]^{\frac{1}{\sigma}} c_0
+}
+\]
+
+which is exactly what we wanted to show.
+
+\paragraph{Solving explicitly for $c_0$}
+
+Define
+\[
+\Gamma
+=
+\sum_{t=0}^{\infty}
+\frac{1}{(1+r)^t}
+[\beta^t (1+r)^t]^{\frac{1}{\sigma}}.
+\]
+
+Then
+\[
+c_0
+=
+\frac{
+(1+r)a_0
++
+\sum_{t=0}^{\infty} \frac{y_t}{(1+r)^t}
+}{
+\Gamma
+}.
+\]
+
+Thus, initial consumption equals total lifetime resources divided by a term that depends on preferences and the interest rate.
+
+\paragraph{Marginal Propensity to Consume (MPC)}
+
+The MPC out of current income is
+
+\[
+\frac{\partial c_0}{\partial y_0}
+=
+\frac{1}{\Gamma}.
+\]
+
+Since $\Gamma > 1$ (because future consumption also enters), we obtain
+
+\[
+\boxed{
+0 < \frac{\partial c_0}{\partial y_0} < 1
+}
+\]
+
+\paragraph{Economic Interpretation}
+
+The MPC is smaller than one because the household smooths consumption over time. An unexpected increase in $y_0$ raises lifetime wealth, but the consumer spreads this increase across all future periods according to the Euler equation. 
+
+If $\beta(1+r)$ is close to one (strong smoothing), the MPC is small.  
+If the consumer is very impatient or $\sigma$ is small (high intertemporal substitution), the MPC is larger.
+
+
+\subsection{d)}
+
+From part (c) we found that the marginal propensity to consume is
+\[
+\frac{\partial c_0}{\partial y_0}
+=
+\frac{1}{\Gamma},
+\]
+where
+\[
+\Gamma
+=
+\sum_{t=0}^{\infty}
+\frac{1}{(1+r)^t}
+[\beta^t (1+r)^t]^{\frac{1}{\sigma}}.
+\]
+
+\paragraph{Step 1: Simplifying $\Gamma$}
+
+First rewrite the term inside the sum:
+\[
+[\beta^t (1+r)^t]^{\frac{1}{\sigma}}
+=
+\beta^{\frac{t}{\sigma}} (1+r)^{\frac{t}{\sigma}}.
+\]
+
+Hence,
+\[
+\Gamma
+=
+\sum_{t=0}^{\infty}
+\beta^{\frac{t}{\sigma}}
+(1+r)^{t\left(\frac{1}{\sigma}-1\right)}.
+\]
+
+This is a geometric series with common ratio
+\[
+q
+=
+\beta^{\frac{1}{\sigma}}
+(1+r)^{\frac{1}{\sigma}-1}.
+\]
+
+Thus,
+\[
+\Gamma
+=
+\frac{1}{1-q}.
+\]
+
+Therefore the MPC becomes
+\[
+\boxed{
+\frac{\partial c_0}{\partial y_0}
+=
+1-q
+=
+1-
+\beta^{\frac{1}{\sigma}}
+(1+r)^{\frac{1}{\sigma}-1}
+}.
+\]
+
+\paragraph{Step 2: Plugging in parameter values}
+
+Assume:
+\[
+\sigma = 2, 
+\qquad
+\beta = 0.95,
+\qquad
+r = 0.04.
+\]
+
+Then
+\[
+q
+=
+\beta^{1/2}
+(1+r)^{-1/2}.
+\]
+
+Compute each term:
+\[
+\beta^{1/2}
+=
+\sqrt{0.95}
+\approx 0.9747,
+\]
+\[
+(1+r)^{-1/2}
+=
+(1.04)^{-1/2}
+\approx 0.9806.
+\]
+
+Thus,
+\[
+q
+\approx
+0.9747 \times 0.9806
+\approx 0.955.
+\]
+
+Therefore,
+\[
+\boxed{
+\text{MPC}
+\approx
+1 - 0.955
+=
+0.045.
+}
+\]
+
+\paragraph{Interpretation}
+
+The model predicts an MPC of roughly $4$--$5\%$, which is far below the empirical estimate of about $0.3$. This is because the infinite-horizon model implies strong consumption smoothing: an income shock is optimally spread over the entire lifetime, so only a small fraction is consumed immediately.
+
+The difference relative to the data arises because the model abstracts from important real-world features. In reality, many households are liquidity constrained, have finite lifetimes, face income risk, and differ substantially from one another. Some households are effectively hand-to-mouth and therefore display much higher MPCs. These features can generate empirical MPCs that are much closer to those observed in the data.
+
+
+
+\section{Exercise 2}
+
+\subsection{a)}
+
+The representative firm maximizes
+\[
+\pi(K_t,L_t)=A K_t^{\alpha} L_t^{1-\alpha} - w_t L_t - r_t K_t .
+\]
+
+\textbf{FOC:}
+\[
+\frac{\partial \pi}{\partial K_t}
+= \alpha A K_t^{\alpha-1} L_t^{1-\alpha} - r_t = 0
+\;\Rightarrow\;
+r_t = \alpha A K_t^{\alpha-1} L_t^{1-\alpha}
+\]
+\[
+\frac{\partial \pi}{\partial L_t}
+= (1-\alpha) A K_t^{\alpha} L_t^{-\alpha} - w_t = 0
+\;\Rightarrow\;
+w_t = (1-\alpha) A K_t^{\alpha} L_t^{-\alpha}.
+\]
+
+Define capital per hour worked $k_t \equiv K_t/L_t$. Then
+\[
+r_t = \alpha A \left(\frac{K_t}{L_t}\right)^{\alpha-1}
+= \alpha A k_t^{\alpha-1},
+\qquad
+w_t = (1-\alpha) A \left(\frac{K_t}{L_t}\right)^{\alpha}
+= (1-\alpha) A k_t^{\alpha}.
+\]
+
+Thus, factor prices depend only on capital per hour worked.
+
+Total output and labor income are
+\[
+Y_t = A K_t^{\alpha} L_t^{1-\alpha},
+\qquad
+w_t L_t = (1-\alpha) A K_t^{\alpha} L_t^{1-\alpha}.
+\]
+
+Hence, the labor income share is
+\[
+\frac{w_t L_t}{Y_t}
+=
+\frac{(1-\alpha) A K_t^{\alpha} L_t^{1-\alpha}}
+{A K_t^{\alpha} L_t^{1-\alpha}}
+= 1-\alpha.
+\]
+
+\[
+\boxed{\text{Labor income share} = 1-\alpha}
+\]
+
+In the Cobb--Douglas case, the labor share is constant and equal to $1-\alpha$.
+
+\subsection{b)}
+Figure 1 plots the labor income share defined as total employee compensation divided by gross value added for Belgium and Poland over the period 1995–2021.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{labor_income_share.png}
+    \caption{plots the labor income share for belgium and Poland}
+\end{figure}
+Belgium displays a relatively stable labor share throughout the period, averaging $\mathbf{5 6 . 4 \%}$, with a modest decline toward the end of the sample. Poland exhibits a lower and more volatile labor share, averaging $\mathbf{4 4 . 3 \%}$.
+\begin{table}[H]
+\centering
+\caption{Average Labor Income Share and Implied $\alpha$}
+\begin{tabular}{lcc}
+\toprule
+                          & Belgium & Poland \\
+\midrule
+Labor income share        & 56.4\%  & 44.3\% \\
+Implied $\alpha$          & 0.436   & 0.557  \\
+\bottomrule
+\end{tabular}
+\end{table}
+From part (a), we showed that under Cobb-Douglas production the labor income share equals $1-\alpha$ :
+$$
+\frac{w_t L_t}{Y_t}=1-\alpha
+$$
+The average labor income share therefore directly pins down $\alpha$, the capital share parameter in the production function. Using the sample averages we obtain:
+$$
+\begin{aligned}
+& \alpha_{B E}=1-0.564=0.436 \\
+& \alpha_{P L}=1-0.443=0.557
+\end{aligned}
+$$
+Poland's substantially higher implied $\alpha$
+suggests that capital accounts for a larger share of production relative to Belgium.
+
 
 \end{document}
