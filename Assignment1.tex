@@ -468,5 +468,129 @@ $$
 Poland's substantially higher implied $\alpha$
 suggests that capital accounts for a larger share of production relative to Belgium.
 
+\subsection{c)}
+The household chooses consumption $c_t$ and wealth $a_{t+1}$ to maximize utility subject to the budget constraint in every period. We attach a multiplier $\lambda_t$ to each period's constraint:
+$$
+\mathcal{L}=\sum_{t=0}^{\infty} \beta^t(1+n)^t \frac{c_t^{1-\sigma}}{1-\sigma}+\sum_{t=0}^{\infty} \lambda_t\left[a_t R_t+w_t-c_t-(1+n) a_{t+1}\right]
+$$
+We take derivatives with respect to the two choice variables: $c_t$ and $a_{t+1}$.
+\subsubsection{FOC for $c_t$}
+$$
+\frac{\partial \mathcal{L}}{\partial c_t}=\beta^t(1+n)^t c_t^{-\sigma}-\lambda_t
+$$
+$$
+\beta^t(1+n)^t c_t^{-\sigma}-\lambda_t=0
+$$
+$$
+\boxed{\lambda_t=\beta^t(1+n)^t c_t^{-\sigma}}
+$$
 
+\subsubsection{FOC for $a_t+1$}
+$$
+\frac{\partial \mathcal{L}}{\partial a_{t+1}}=-\lambda_t(1+n)+\lambda_{t+1} R_{t+1}
+$$
+$$
+-\lambda_t(1+n)+\lambda_{t+1} R_{t+1}=0
+$$
+$$
+\boxed{\lambda_t(1+n)=\lambda_{t+1} R_{t+1}}
+$$
+
+\subsubsection{Obtaining the euler-equation}
+To better understand the trade off between consumption and saving, we can substitute the $c_t$ FOC into the $a_t+t$ FOC.
+\\
+\\
+From the $c_t$ FOC we got:
+$$
+\lambda_t=\beta^t(1+n)^t c_t^{-\sigma}
+$$
+This holds for any period as it’s a general statement. So if we shift it forward one period we get:
+$$
+\lambda_{t+1}=\beta^{t+1}(1+n)^{t+1} c_{t+1}^{-\sigma}
+$$
+These two terms for $\lambda_t$ and $\lambda_t+1$ can now be inserted directly into the second FOC:
+$$
+\beta^t(1+n)^t c_t^{-\sigma} \cdot(1+n)=\beta^{t+1}(1+n)^{t+1} c_{t+1}^{-\sigma} \cdot R_{t+1}
+$$
+Cancel $(1+n)^{t+1}$ from both sides, and $\beta^t$ to get the euler-equation:
+$$
+\boxed{c_t^{-\sigma}=\beta \cdot c_{t+1}^{-\sigma} \cdot R_{t+1}}
+$$
+The Euler equation governs when the household chooses to consume. It's the fundamental consumption-savings tradeoff.
+$$
+\begin{array}{ll}
+\text { Situation } & \text { What happens } \\
+\hline \beta R_{t+1}>1 & \text { Future is attractive } \text { → } \text { consumption grows } \\
+\hline \beta R_{t+1}<1 & \text { Present is attractive } \text { → } \text { consumption shrinks } \\
+\hline \beta R_{t+1}=1 & \text { Indifferent } \text { → } \text { consumption is flat } \\
+\hline
+\end{array}
+$$
+\subsection{d)}
+We need to impose that markets clear meaning supply equals demand in every market. There are two markets.
+\paragraph{Capital market:} Households own the capital and rent it to firms. In per-capita terms:
+$$
+a_t=k_t
+$$
+Household wealth = capital stock.
+\paragraph{Labor market:} Each household supplies 1 unit of time, so aggregate labor per capita = 1:
+$$
+L_t=1
+$$
+From part a of the exercise we know:
+$$
+r_t=\alpha A k_t^{\alpha-1}
+$$
+meaning gross returns:
+$$
+R_t=1+r_t-\delta=1+\alpha A k_t^{\alpha-1}-\delta
+$$
+in steady state the economy stops changing. consumption and capital per capita are constant so the growth rate of consumption;
+$$
+\frac{c_{t+1}}{c_t}=1
+$$
+from part c the euler-equation is:
+$$
+c_t^{-\sigma}=\beta \cdot c_{t+1}^{-\sigma} \cdot R_{t+1}
+$$
+In steady state $c_{t+1}=c_t$, so $c^{-\sigma}$ cancels from both sides:
+$$
+1=\beta \cdot R^*
+$$
+$$
+R^*=\frac{1}{\beta}
+$$
+now we substitute in the expression for gross returns:
+$$1+\alpha A\left(k^*\right)^{\alpha-1}-\delta=\frac{1}{\beta}$$
+solve for capital steadt state:
+$$
+\alpha A\left(k^*\right)^{\alpha-1}=\frac{1}{\beta}-1+\delta
+$$
+$$
+\boxed{k^*=\left(\frac{\alpha A}{\frac{1}{\beta}-1+\delta}\right)^{\frac{1}{1-\alpha}}}
+$$
+\paragraph{Captial output ratio}
+Output per capita with $L=1$ is:
+$$
+y^*=A\left(k^*\right)^\alpha
+$$
+so the capital output ratio is:
+$$
+\frac{k^*}{y^*}=\frac{k^*}{A\left(k^*\right)^\alpha}=\frac{\left(k^*\right)^{1-\alpha}}{A}
+$$
+From the steady state condition above we know:
+$$
+\left(k^*\right)^{1-\alpha}=\frac{\alpha A}{\frac{1}{\beta}-1+\delta}
+$$
+Substituting:
+$$
+\boxed{\frac{k^*}{y^*}=\frac{\alpha}{\frac{1}{\beta}-1+\delta}}
+$$
+we see the capital-output ratio depends only on $\alpha, \beta$, and $\delta$. depreciations sits in the denominator, meaning:
+$$
+\delta \uparrow \Rightarrow \frac{1}{\beta}-1+\delta \uparrow \Rightarrow \frac{k^*}{y^*} \downarrow
+$$
+Higher depreciation makes capital more expensive to maintain. Each unit of capital loses more of its value each period, which reduces the net return to saving. Households therefore find it less attractive to accumulate capital, and the economy settles at a lower capital-output ratio in steady state.
+
+\subsection{e)}
 \end{document}
