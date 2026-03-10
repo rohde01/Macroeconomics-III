@@ -213,4 +213,83 @@ f^{\prime}(k)=\frac{1}{\beta}+\delta-1
 $$
 this says: The marginal product of capital must exactly compensate households for waiting (impatience, captured by $1 / \beta$ ) and for depreciation ( $\delta$ ).
 
+\section{Week 4 - OLG Model}
+The Ramsey model assumed people live forever. That's obviously unrealistic. The OLG model fixes this: people live for only $\mathbf{2}$ periods - young and old - and new generations are constantly being born. This creates a richer and more realistic economy, and raises the question: can the government actually improve things?
+\begin{itemize}
+    \item Time is discrete (period 1, 2, 3...)
+    \item Each person lives 2 periods: young (works, earns wage, saves) and old (retires, lives off savings)
+    \item Population grows at rate $\mathbf{n}$, so each generation is larger than the last: $L_{t+1}=(1+n) L_t$
+    \item Key difference from Ramsey: no dynasties — you don't care about your kids' utility
+\end{itemize}
+
+\subsection{Household problem}
+Similar to previous setups. Young people maximise lifetime utility:
+$$
+\max U=u\left(c_{1, t}\right)+\beta \cdot u\left(c_{2, t+1}\right)
+$$
+\paragraph{budget constraints:}
+\begin{itemize}
+    \item When young: $c_{1, t}+a_{t+1}=w_t \rightarrow$ you earn a wage, consume some, save the rest ( $a$ )
+    \item When old: $c_{2, t+1}=\left(1+r_{t+1}\right) \cdot a_{t+1} \rightarrow$ you live off your savings + interest
+\end{itemize}
+\subsubsection{Euler equation}
+also very similar logic: 
+$$
+u^{\prime}\left(c_1\right)=\beta(1+r) \cdot u^{\prime}\left(c_2\right)
+$$
+At the optimum, giving up a unit of consumption today (losing $u^{\prime}\left(c_1\right)$ ) should equal the discounted gain from consuming more tomorrow.
+\subsection{Firms}
+Cobb-Douglas production: $Y=K^\alpha L^{1-\alpha}$
+as always:
+\begin{itemize}
+    \item $r=\alpha k^{\alpha-1}$ (return to capital)
+    \item $w=(1-\alpha) k^\alpha$ (wage per worker)
+\end{itemize}
+
+\subsection{Capital accum.}
+Young people's savings become next period's capital stock:
+$$
+K_{t+1}=S_t \quad \Rightarrow \quad(1+n) k_{t+1}=s_t
+$$
+With log utility + Cobb-Douglas, this gives the law of motion for capital:
+$$
+(1+n) k_{t+1}=(1-\alpha) \frac{\beta}{1+\beta} k_t^\alpha
+$$
+The Golden Rule capital level $k_{g r}$ is the capital stock that maximises steady-state consumption for everyone. It's defined by:
+$$
+f^{\prime}\left(k_{g r}\right)=n
+$$
+the return on one extra unit of capital (the marginal product) equals the population growth rate. This is the "sweet spot" — just the right amount of capital.
+\paragraph{Core porblem:}
+The economy can end up at $k>k_{\_} g r^*$ (dynamically inefficient - too much capital, too much saving). If the capital stock is so large that the cost of maintaining it exceeds what it produces, you're wasting resources. Everyone would be better off if the economy had less capital and people just consumed more instead. But here is the problem: Nobody individually has an incentive to save less, because if you save less, you'll be poor when old.
+\subsection{Role of government}
+\begin{itemize}
+    \item In the Ramsey model, there's one representative household → easy to evaluate welfare.
+    \item In OLG, infinitely many households (different generations) live at the same time. Whose utility counts more? There's no clear answer.
+    \item Instead, we ask: can the government achieve a Pareto improvement (make someone better off without hurting anyone)?
+\end{itemize}
+The government steps in to coordinate a redistribution that no individual can pull off alone to address the core problem explained above. The government is transferring money between generations — specifically, taking from the young and giving to the old (or equivalently, issuing bonds that the young buy, then paying them back when they're old using taxes on the next young generation).
+\subsubsection{government debt:}
+Here $g=0$ - the government doesn't spend anything. Instead it just moves money between generations.
+\paragraph{Period t:}
+\begin{itemize}
+    \item Government issues bonds $B_{t+1}$ (borrows money)
+    \item The young buy these bonds - this is part of their saving
+    \item Government uses the proceeds to pay off old-period bonds + gives transfers to the current old
+\end{itemize}
+
+\paragraph{Period t+1}
+\begin{itemize}
+    \item The same young are now old
+    \item Government taxes the \textbf{new} young generation
+    \item Uses that tax revenue to pay back the bonds (with interest) to the now-old
+\end{itemize}
+people can't make this scheme themselves because the next generation isn't born yet. You can't write a contract with someone who doesn't exist. The government, because it's infinitely lived, can make and enforce that promise across generations.
+
+\paragraph{Importance of population growths:}
+The government's "trick" only works because there are more young people each period (population grows at rate $n$ ).
+\\
+Each old person is owed repayment, but there are $(1+n)$ young people per old person to tax. So the effective return on this scheme is $n$ - the population growth rate.
+\\
+The scheme is worth doing when $n>r$ (population growth return beats the market return on capital) — which is exactly the condition $f^{\prime}\left(k^*\right)<n$, i.e. dynamic inefficiency.
 \end{document}
