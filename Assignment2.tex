@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry} % Indstiller margen til 2.5 cm
+\usepackage{setspace} % Til linjeafstand
+\onehalfspacing % Indstiller linjeafstand til 1.5
+\usepackage{graphicx} % Til billeder
+\usepackage{amsmath, amssymb} % Til matematiske udtryk
+\usepackage{booktabs} % Til tabeller
+\usepackage{caption} % Bedre kontrol over billedtekst
+\usepackage{float} % Tillader placering af figurer på en ny side
+\usepackage{pgfplots}
+\usetikzlibrary{intersections, patterns, decorations.markings, calc}
+
+\title{Macroeconomics III - Assignment 2}
+\author{Emil Oliver Olesen (fps618) \& Carl-Emil Rohde (kvb125)}
+\date{Apr 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Exercise 1 - Business cycle empirics and costs}
+\subsection{a)}
+
+
+\section{Exercise 2}
+\subsection{a)}
+We have the matching function, which tells us the total number of matches formed in a period. We want to turn that into probabilities for each side of the market.
+\paragraph{Job-finding probability}
+this means finding out of all the matches formed, what fraction of the unemployed pool gets matched?
+$$
+f(\theta)=\frac{M(u, v)}{u}
+$$
+Plugging in the matching function:
+$$
+f(\theta)=\frac{u^\gamma v^{1-\gamma}}{u}=u^{\gamma-1} v^{1-\gamma}
+$$
+Rewrite everything in terms of $\theta=\mathrm{v} / \mathrm{u}$:
+$$
+f(\theta)=u^{\gamma-1} \cdot v^{1-\gamma}=u^{\gamma-1} \cdot u^{1-\gamma} \cdot\left(\frac{v}{u}\right)^{1-\gamma}
+$$
+reduce:
+$$
+\boxed{f(\theta)=\theta^{1-\gamma}}
+$$
+The intuituin is when the market is tight, hight $\theta$ $\rightarrow$ lots of vacancies per unemployed $\rightarrow$ workers find jobs more easily $\rightarrow$ f is increasing in $\theta$.
+\paragraph{Vacancy-filling probability}
+Same logic, but from the firm's side. Out of all matches formed, what fraction of vacancies gets filled?
+$$
+\eta(\theta)=\frac{M(u, v)}{v}
+$$
+Plugging in:
+$$
+\eta(\theta)=\frac{u^\gamma v^{1-\gamma}}{v}=u^\gamma v^{-\gamma}
+$$
+Again, rewrite
+$$
+\eta(\theta)=\left(\frac{u}{v}\right)^\gamma=\left(\frac{v}{u}\right)^{-\gamma}
+$$
+$$\boxed{\eta(\theta)=\theta^{-\gamma}}$$
+Intuituin here is when the market is tight ( $\theta$ high), there are many vacancies chasing few workers, so each individual firm has a harder time filling its vacancy $-\eta$ is decreasing in $\theta$.
+
+\subsection{b)}
+In steady state the inflow into unemployment and outflow out of unemployment must balance:
+$$
+\delta(1-u)=f(\theta) \cdot u
+$$
+Now we solve for $u$:
+$$
+\delta-\delta u=f(\theta) \cdot u
+$$
+Collect the $u$ terms on one side:
+$$
+\delta=f(\theta) \cdot u+\delta u=u[f(\theta)+\delta]
+$$
+
+$$\boxed{u=\frac{\delta}{\delta+f(\theta)}}$$
+\textbf{Intuition: }Unemployment is high when separations $\delta$ are large and low when $\mathrm{f}(\theta)$ is large. It's just the ratio of the inflow rate to the total turnover rate.
+
+\subsubsection{Drawingt the Beveridge curve}
+Since $\theta=\mathrm{v} / \mathrm{u}$, we can substitute back:
+$$
+u=\frac{\delta}{\delta+f(v / u)}
+$$
+This defines a curve in (u, v) space, namely the beveridge curve:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{curve.png}
+    \caption{The beveridge curve    }
+    \label{fig:placeholder}
+\end{figure}
+Unemployment and vacancies are negatively related along this curve. When vacancies are high, workers find jobs quickly and unemployment is low. When vacancies are scarce, job finding is slow and unemployment piles up. 
+
+\end{document}
