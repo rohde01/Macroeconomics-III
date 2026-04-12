@@ -292,4 +292,97 @@ The government's "trick" only works because there are more young people each per
 Each old person is owed repayment, but there are $(1+n)$ young people per old person to tax. So the effective return on this scheme is $n$ - the population growth rate.
 \\
 The scheme is worth doing when $n>r$ (population growth return beats the market return on capital) — which is exactly the condition $f^{\prime}\left(k^*\right)<n$, i.e. dynamic inefficiency.
+
+\section{Week 5}
+In the OLG model, the market equilibrium can end up with too much capital — the economy over-saves. This happens when the steady-state interest rate ends up being lower than the population growth rate $n$. this would be a symptom that there is so much capital in the economy, the return on invested capital is now lower than the population growth. That's the condition for dynamic inefficiency.
+\paragraph{the planners deal:} Every young person gives a small amount $x$ to the current old generation.
+\begin{itemize}
+    \item when you are young in period $t$, you give up $x$ meaning you loose $x$ amount of consumption. not initially cool. 
+    \item but when you are old in period $t+1$ the new young generation all give you $x$ each back.
+    \item because there are now more young people: $1+n$ for every old person, you earn a return of $x(1+n)$ on the inital $x$ you gave up in period $t$
+\end{itemize}
+This planner's scheme beats the market whenever:
+$$n>r^*$$
+ie. exactly the dynamic inefficiency condition. The planner is replacing a low-return investment (capital) with a higher-return deal (intergenerational transfers). Empirically, most economists think real economies have $r>n$ most of the time, so dynamic inefficiency is more of a theoretical possibility than a practical concern.
+
+\subsection{Governments debt}
+In the baseline OLG model without debt, young people save and all savings become capital:
+$$
+(1+n) k_{t+1}=s_t
+$$
+But now the young have two assets to save in: capital and government bonds. Both pay the same return (competitive markets, no arbitrage), so:
+$$
+(1+n)\left(k_{t+1}+b_{t+1}\right)=s_t
+$$
+Total savings hasn't changed much, but now part of it goes to bonds instead of capital. This is crowding out — government debt absorbs private savings that would otherwise fund productive capital investment.
+\paragraph{debt - good or bad here?}
+This is where the dynamic inefficiency story connects. If the economy is dynamically inefficient ( $r^*<n$, too much capital), then crowding out is actually a good thing - the economy was over-saving, and debt soaks up some of those excess savings. The debt is essentially doing the same job as the planner's transfer scheme from the previous slide. The young buy bonds (giving resources to the government), the government uses the proceeds to pay off old bondholders (transferring resources to the old). It's an intergenerational transfer implemented through debt rather than direct taxation.
+\paragraph{TLDR:}
+The mechanism is: government debt competes with capital for the young's savings, reducing the capital stock. Whether that's desirable depends on whether the economy was over-saving to begin with.
+
+\subsection{Social security I: Fully funded}
+A fully funded pension is conceptually simple: the government **forces** you to save a specific amount $d_t$ out of your paycheck, invests it, and gives it back to you with interest when you retire. The key word is "fully funded" - your own contributions are set aside and invested for *your own* retirement. Nobody else's money is involved.
+\paragraph{the math}
+\begin{itemize}
+    \item When young (period $t$ ): Your wage is $w_t$. You choose private savings $s_t$, and the government takes a mandatory contribution $d_t$ :
+
+$$
+c_{1, t}=w_t-s_t-d_t
+$$
+\item The government invests your $d_t$ in the capital market, earning the same return $r_{t+1}$ you'd earn yourself. So your pension benefit is:
+
+$$
+b_{t+1}=\left(1+r_{t+1}\right) d_t
+$$
+\item When old (period $t+1$ ): You get your private savings back plus your pension:
+
+$$
+c_{2, t+1}=\underbrace{\left(1+r_{t+1}\right) s_t}_{\text {private savings }}+\underbrace{\left(1+r_{t+1}\right) d_t}_{\text {pension }}=\left(1+r_{t+1}\right)\left(s_t+d_t\right)
+$$
+\end{itemize}
+Look at old-age consumption. It depends on $s_t+d_t$ - your total savings, regardless of how it's split. If the government forces you to save $d_t=5$, you just reduce your private savings by 5 (set $s_t$ lower by 5 ), and everything is identical to before.
+\paragraph{so why implement this at all?}
+The slides hint at this: it only matters if people are **not** rational optimizers. If people have short planning horizons, procrastinate on saving, or have behavioral biases, then forced saving $d_t$ helps because they *wouldn't* have saved that amount voluntarily. But within the standard rational model, it's completely neutral.
+
+\subsection{Social security II: Pay-as-you-go}
+In the fully funded system, your contributions were invested and returned to *you*. Here, your contributions $d_t$ go **directly to today's old people** - they're spent immediately, not invested. When you're old, the *next* generation pays for you.
+\paragraph{the math}
+The benifit formula: 
+$$
+b_t=(1+n) d_t
+$$
+Each old person receives $b_t$. There are ( $1+n$ ) young people per old person, each paying $d_t$. So the old person gets $(1+n) d_t$. This is just accounting - no investment, no interest rate, just redistribution.
+\paragraph{when young}
+$$
+c_{1, t}+s_t=w_t-d_t
+$$
+Same as before - you earn $w_t$, the government takes $d_t$, you choose how much of the rest to save privately.
+\paragraph{when old}
+$$
+c_{2, t+1}=\underbrace{\left(1+r_{t+1}\right) s_t}_{\text {return on private savings }}+\underbrace{(1+n) d_{t+1}}_{\text {pension from next generation's young }}
+$$
+Notice the critical difference from the fully funded case. There, both components earned return ( $1+r$ ). Here, private savings earns ( $1+r$ ), but the pension component earns an implicit return of $(1+n)$ - population growth, not the interest rate.
+
+\paragraph{connection to the planner's solution}
+Remember the planner's trick: set up intergenerational transfers where the young give $x$ to the old and get $(1+n) x$ back from the next generation. Pay-as-you-go is exactly that scheme.
+
+If the economy is dynamically inefficient ( $r^*<n$ ), the pay-as-you-go return ( $1+n$ ) exceeds the market return ( $1+r$ ). By choosing the right $d_t$, the government can:
+\begin{itemize}
+    \item 1. Reduce private savings (young people save less because they're paying $d_t$ and expecting a pension)
+    \item 2. Lower the capital stock toward the golden rule $k_{g r}$
+    \item 3. Give everyone a better deal - the pension return $(1+n)$ beats what capital was offering $(1+r)$
+\end{itemize}
+
+\subsubsection{comparisons table}
+\begin{tabular}{|l|l|l|}
+\hline & Fully funded & Pay-as-you-go \\
+\hline Your $d_t$ goes to & Investment (for you) & Current old \\
+\hline Return on $d_t$ & $(1+r)$ & $(1+n)$ \\
+\hline Affects Euler equation? & No & No (still lump sum) \\
+\hline Affects lifetime wealth? & No & Yes (if $r \neq n$ ) \\
+\hline Crowds out capital? & No & Yes \\
+\hline Can fix dynamic inefficiency? & No & Yes \\
+\hline
+\end{tabular}
+
 \end{document}
