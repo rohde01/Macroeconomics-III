@@ -96,7 +96,7 @@ $$
 \lambda_{US\to PT}=-0.000178 \;(-0.0178\%), \qquad
 \lambda_{PT\to US}=+0.000178 \;(0.0178\%).
 $$
-Interpretation: Portuguese aggregate consumption risk is higher in this sample, but the implied welfare gap is very small (around two-hundredths of one percent of consumption).
+Interpretation: Portuguese aggregate consumption risk is higher in this sample, but the implied welfare gap is very small, around two-hundredths of one percent of consumption.
 
 \subsection{d)}
 
@@ -131,7 +131,7 @@ Portugal $\sigma_c$ calibration & 1.000366 & 1.012018 & -0.011513 \;(-1.151\%) \
 \end{tabular}
 \end{table}
 
-The negative sign means economy (a) is preferred: the individual would accept about a 1.15--1.17\% reduction in consumption in economy (a) and still be indifferent to economy (c). This is much larger than the representative-agent aggregate business-cycle costs above (around 0.02--0.04\%), so business cycles are not ``costless'' once large idiosyncratic downside risk (such as unemployment risk) is introduced.
+The negative sign means economy (a) is preferred: the individual would accept about a 1.15--1.17\% reduction in consumption in economy (a) and still be indifferent to economy (c). This is much larger than the representative-agent aggregate business-cycle costs above (around 0.02--0.04\%), so business cycles are not costless once large idiosyncratic downside risk (such as unemployment risk) is introduced.
 
 
 \section{Exercise 2}
@@ -201,5 +201,185 @@ This defines a curve in (u, v) space, namely the beveridge curve:
     \label{fig:placeholder}
 \end{figure}
 Unemployment and vacancies are negatively related along this curve. When vacancies are high, workers find jobs quickly and unemployment is low. When vacancies are scarce, job finding is slow and unemployment piles up. 
+
+
+
+
+
+
+
+\subsection{c)}
+Using quarterly Portuguese data, we plot unemployment on the $x$-axis and the vacancy rate on the $y$-axis (Figure \ref{fig:ex2c_beveridge}). The scatter shows a clear negative relationship, consistent with a Beveridge curve. In our sample, the correlation is approximately
+$$
+\mathrm{corr}(u_t, v_t) \approx -0.718.
+$$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\linewidth]{2c.png}
+    \caption{Portugal Beveridge curve: unemployment rate vs vacancy rate.}
+    \label{fig:ex2c_beveridge}
+\end{figure}
+
+This pattern is in line with the search-and-matching model: in weak labor market conditions, unemployment is high and vacancies are low; in stronger conditions, unemployment falls while vacancies rise.  
+Since the job-finding rate is increasing in labor market tightness, this implies a procyclical job-finding rate:
+$$
+f_t = f(\theta_t), \qquad \theta_t=\frac{v_t}{u_t}, \qquad \frac{\partial f}{\partial \theta}>0.
+$$
+So, movements along the Beveridge curve indicate that job-finding worsens in downturns and improves in recoveries.
+
+\subsection{d)}
+We define labor market tightness as
+$$
+\theta_t=\frac{v_t}{u_t}.
+$$
+Figure \ref{fig:ex2d_tightness} shows the time series of $\theta_t$ together with the vacancy and unemployment rates.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{2d.png}
+    \caption{Portugal labor market tightness over time, $\theta_t=v_t/u_t$, with vacancy and unemployment rates.}
+    \label{fig:ex2d_tightness}
+\end{figure}
+
+After the Covid recession, tightness rises substantially relative to its trough. Around the Covid unemployment peak (2020Q3), tightness is roughly $0.11$, while by 2025Q4 it is about $0.33$. This indicates that vacancies recovered faster than unemployment declined.
+
+A plausible interpretation is:
+\newline
+\newline
+1) Reopening demand: firms posted vacancies quickly as activity normalized.
+\newline 
+2) Matching frictions: workers and jobs did not reconnect immediately across sectors and skills.
+\newline
+3) Sectoral reallocation: labor demand shifted toward sectors with temporary hiring bottlenecks.
+\newline
+\newline
+Hence, the post-Covid period appears ``tighter'' in a relative sense (compared to 2020--2021), even though $\theta_t<1$ throughout the sample, so the market is not tight in the absolute sense of vacancies exceeding unemployment.
+
+\subsection{e)}
+
+To estimate the matching parameters in the data, we use Eurostat dataset \texttt{lfsi\_long\_q} for Portugal (quarterly, seasonally adjusted, all genders, measured in thousand persons). We extract the transition flows
+\[
+U_E,\; U_U,\; E_E,\; E_U,
+\]
+and construct:
+\[
+jf_t=\frac{U_E}{U_E+U_U}, 
+\qquad
+sep_t=\frac{E_U}{E_E+E_U}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{2e.png}
+    \caption{Portugal: job-finding and separation rates, with underlying labor market transition flows.}
+    \label{fig:ex2e_rates}
+\end{figure}
+
+From Exercise 2(a), the model implies
+\[
+f(\theta)=\theta^{1-\gamma}.
+\]
+Using \(jf_t\) as the empirical counterpart to \(f(\theta_t)\), we estimate in logs:
+\[
+\log(jf_t)=a+\beta\log(\theta_t)+\varepsilon_t,
+\]
+so that
+\[
+\gamma = 1-\beta.
+\]
+
+In the data, the estimated slope is approximately \(\hat\beta=0.215\), implying:
+\[
+\hat\gamma = 1-\hat\beta \approx 0.785.
+\]
+
+For separations, we use the average separation rate:
+\[
+\hat\delta = \overline{sep_t} \approx 0.0175.
+\]
+
+The figure also shows that \(sep_t\) is much smoother than \(jf_t\). Consistent with this, the standard deviations are approximately:
+\[
+\sigma(jf)\approx 0.0667, 
+\qquad 
+\sigma(sep)\approx 0.0071.
+\]
+Hence, it is fair to treat the separation rate as approximately constant over time relative to the job-finding rate, and a reasonable quarterly calibration is \(\delta \approx 0.018\) (about \(1.8\%\) per quarter).
+
+
+
+
+
+\subsection{f)}
+
+We estimate the specification
+\[
+\log(jf_t)=a+b\log(\theta_t)+\varepsilon_t,
+\]
+where \(jf_t\) is the job-finding rate and \(\theta_t\) is labor-market tightness.  
+Missing observations are dropped, and we use the overlapping sample for \(jf_t\) and \(\theta_t\).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\linewidth]{2f.png}
+    \caption{Log-log regression: \(\log(jf)\) on \(\log(\theta)\), Portugal.}
+    \label{fig:ex2f_loglog}
+\end{figure}
+
+The estimated slope is
+\[
+\hat b \approx 0.215 \quad (R^2 \approx 0.649,\; N=48).
+\]
+Hence, job finding is positively related to tightness, as predicted by the model.
+
+\paragraph{Implication for \(\theta\).}
+Because this is a log-log regression, \(\hat b\) is an elasticity:
+\[
+\frac{\partial \log(jf)}{\partial \log(\theta)}=\hat b \approx 0.215.
+\]
+So a \(1\%\) increase in \(\theta\) is associated with about a \(0.215\%\) increase in \(jf\).  
+Equivalently, to raise \(jf\) by \(1\%\), \(\theta\) must increase by roughly
+\[
+\frac{1}{0.215}\approx 4.65\%.
+\]
+This implies that job finding responds inelastically to tightness (\(<1\) elasticity): meaningful improvements in \(jf\) require relatively large increases in \(\theta\).
+
+Using the matching relation from Exercise (a), \(f(\theta)=\theta^{1-\gamma}\), and identifying \(f(\theta)\) with \(jf\), we get
+\[
+\hat\gamma = 1-\hat b \approx 0.785.
+\]
+
+
+\subsection{g)}
+
+The two equations determine equilibrium wage setting from two different sides of the labor market:
+
+\[
+w=y-\frac{r+\delta}{\eta(\theta)}\kappa
+\quad\text{(vacancy creation)}
+\]
+\[
+w=\xi\kappa\theta+\xi y+(1-\xi)b
+\quad\text{(wage bargaining)}.
+\]
+
+The vacancy-creation curve is the firms’ free-entry condition: expected profits from posting a vacancy are driven to zero. Hiring is costly because each vacancy costs \(\kappa\) and is filled only with probability \(\eta(\theta)\), so expected hiring cost per match is \(\kappa/\eta(\theta)\). Higher tightness lowers \(\eta(\theta)\), raises expected hiring costs, and reduces the wage firms are willing to pay.
+
+The wage-bargaining curve comes from Nash bargaining: wage splits match surplus according to worker bargaining power \(\xi\), between productivity \(y\) and outside option \(b\), adjusted for labor-market conditions.
+
+\(\kappa\) enters bargaining because vacancy costs affect total match surplus and outside opportunities in equilibrium. When hiring frictions are more expensive, the surplus created by a match changes; with Nash bargaining, that changes how much wage workers can obtain.
+
+
+\subsection{h)}
+
+The matching function creates two externalities:
+
+\begin{itemize}
+    \item \textbf{Congestion externality (negative):} more vacancies reduce other firms’ filling probability (\(\eta(\theta)\)).
+    \item \textbf{Search externality (positive):} more vacancies raise workers’ job-finding probability (\(f(\theta)\)), and more search by workers helps firms.
+\end{itemize}
+
+Since private agents do not internalize these effects, equilibrium is generally inefficient (except under Hosios-type parameter restrictions).
 
 \end{document}
