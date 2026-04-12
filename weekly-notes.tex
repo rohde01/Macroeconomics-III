@@ -385,4 +385,42 @@ If the economy is dynamically inefficient ( $r^*<n$ ), the pay-as-you-go return 
 \hline
 \end{tabular}
 
+
+\section{Endogenous Labor Supply}
+Up to now in the course, the models have assumed people just work — labor supply is fixed, not a choice. But that's clearly unrealistic. Americans work way more hours than, say, the French. And we all work less than people did 100 years ago. To explain these patterns, we need to let households choose how much to work.
+\paragraph{new utility function}
+$$
+U=u(c)-v(h) \quad \text { s.t. } \quad c=w h
+$$
+This says: happiness comes from two things pulling in opposite directions:
+\begin{itemize}
+    \item $u(c)$ - utility from consumption. More consumption $=$ more happiness. This is the same as before in the course.
+    \item $v(h)$ - dis-utility from working $h$ hours. More work = more misery. The key detail is that this increases *exponentially* — the 8th hour of work feels way worse than the 2nd hour.
+\end{itemize}
+The \textbf{minus sign} is doing important work: you gain happiness from consuming but lose happiness from working. Total utility is the net of these two forces.
+
+The \textbf{budget constraint} $c=w h$ : Your consumption equals your wage rate $w$ times hours worked $h$. No savings here - you eat what you earn. And the only way to consume more is to work more, which hurts.
+
+\textbf{Time budget} $1=h+l$ : You have one unit of time (think of it as 24 hours, just normalized to 1). You split it between work $h$ and leisure $l$. This is just bookkeeping - if you know $h$, you know $l=1-h$.
+
+\paragraph{Optimality condition}
+The household picks $h$ to maximize $U=u(w h)-v(h)$. Taking the derivative with respect to $h$ and setting it to zero:
+
+$$
+\frac{d}{d h}[u(w h)-v(h)]=u^{\prime}(c) \cdot w-v^{\prime}(h)=0
+$$
+
+
+Rearranging:
+
+$$
+\frac{v^{\prime}(h)}{u^{\prime}(c)}=w
+$$
+**What this says in plain English:** the marginal rate of substitution between leisure and consumption equals the wage. In other words, the *extra misery* from one more hour of work (numerator), measured relative to how much you value the *extra consumption* that hour buys (denominator), must equal the wage $w$.
+
+\section{TODO}
+\subsection{The many elasticities of labor supply}
+\subsection{Labor demand}
+\subsection{Risk}
+
 \end{document}
